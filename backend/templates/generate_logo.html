@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <title>Django ChatGPT demo</title>
+  <link
+    rel="shortcut icon"
+    href="{% static 'dog.png' %}"
+  />
+  <link rel="stylesheet" href="{% static 'main.css' %}" />
+</head>
+
+<body>
+  {% comment %} <img src="{% static 'dog.png' %}" class="icon" /> {% endcomment %}
+  <h3>Use AI to create a logo</h3>
+  <form action="{% url 'core:generate-logo' %}" method="post" id="basicimageform">
+    {% csrf_token %}
+    {{form.input}}
+    <button type="submit" >Generate logo</button>
+  </form>
+
+  <div class="result">
+
+  </div>
+
+  <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+  <script src="{% static 'main.js' %}"></script>
+</body>

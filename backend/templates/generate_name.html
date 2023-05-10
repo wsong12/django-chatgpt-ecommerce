@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+  <script src="js/bootstrap.min.js"></script>
+
+  <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+  <script src="{% static 'namegenerator.js' %}"></script>
+
+
+
+
+
+
+      <div class='contain_report'>
+        <form action="{% url 'core:name_generator' %}" method="post" id="basicform">
+          {% csrf_token %}
+          {{form.input}}
+          <button type="submit" >Generate Names</button>
+        </form>
+
+        <div id="generate_name"></div>
+ 
+
+{% endblock %}

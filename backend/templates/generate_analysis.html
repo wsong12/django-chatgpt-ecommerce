@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% load static %}
+
+<!--...-->
+{% block content %}
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+  <script src="{% static 'main.js' %}"></script>
+
+
+
+
+      <div class='contain_report'>
+        <form action="{% url 'core:home' %}" method="post" id="basicform">
+          {% csrf_token %}
+          {{form.input}}
+          <button type="submit" >Generate Report</button>
+        </form>
+
+        <div id="loading_info"></div>
+        <div id="wordcloud"></div>
+        <div id="chartContainer1" style="height: 370px; width: 40%;"></div>
+        <div id="chatgpt1"></div>
+        <div id="chartContainer2" style="height: 370px; width: 40%;"></div>
+        <div id="chatgpt2"></div>
+
+
+     </div>
+{% endblock %}
